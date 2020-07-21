@@ -6,7 +6,10 @@ interface Props {
 
 const Label: React.FC<Props> = ({ label }) => {
   return (
-    <label className="text-md uppercase tracking-wider font-semibold text-gray-700">
+    <label
+      htmlFor={label}
+      className="mb-1 text-sm uppercase tracking-wider font-semibold text-gray-700"
+    >
       {label}
     </label>
   )
