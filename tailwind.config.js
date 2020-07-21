@@ -9,7 +9,11 @@ module.exports = {
     ],
   },
   theme: {
-    extend: {},
+    extend: {
+      inset: {
+        '50-': '-50px',
+      },
+    },
   },
   variants: {},
   plugins: [],
