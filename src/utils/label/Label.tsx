@@ -8,7 +8,7 @@ const Label: React.FC<Props> = ({ label }) => {
   return (
     <label
       htmlFor={label}
-      className="mb-1 text-sm uppercase tracking-wider font-semibold text-gray-700"
+      className="mb-1 text-sm uppercase tracking-wider font-medium text-gray-700"
     >
       {label}
     </label>
