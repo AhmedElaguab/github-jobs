@@ -1,10 +1,30 @@
-import React, { useState } from 'react'
+import React, { useCallback, ChangeEvent } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from './../../app/rootReducer'
+import { setDescription, setLocation } from './searchSlice'
+
 import Container from '../../utils/container/Container'
 import FormInput from '../../utils/formInput/FormInput'
 
 const SearchJobs: React.FC = () => {
-  const [description, setDescription] = useState('react')
-  const [location, setLocation] = useState('ny')
+  const { description, location } = useSelector(
+    (state: RootState) => state.search,
+  )
+
+  const dispatch = useDispatch()
+  const handleDescriptionChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      dispatch(setDescription(e.target.value))
+    },
+    [dispatch],
+  )
+
+  const handleLocationChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      dispatch(setLocation(e.target.value))
+    },
+    [dispatch],
+  )
 
   return (
     <div className="px-2">
@@ -17,7 +37,7 @@ const SearchJobs: React.FC = () => {
                   label="Description"
                   placeholder="Enter description"
                   value={description}
-                  onChange={e => setDescription(e.target.value)}
+                  onChange={handleDescriptionChange}
                 />
               </div>
               <div className="lg:w-6/12 pl-1">
@@ -25,7 +45,7 @@ const SearchJobs: React.FC = () => {
                   label="Location"
                   placeholder="Enter location"
                   value={location}
-                  onChange={e => setLocation(e.target.value)}
+                  onChange={handleLocationChange}
                 />
               </div>
             </div>
