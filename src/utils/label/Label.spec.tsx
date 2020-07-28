@@ -4,6 +4,10 @@ import Label from './Label'
 
 test('should render label text', () => {
   const labelText = 'Description'
-  const { queryByText } = render(<Label label={labelText} />)
-  expect(queryByText(labelText)).toBeInTheDocument()
+  const { queryByLabelText, debug } = render(
+    <Label label={labelText}>
+      <input />
+    </Label>,
+  )
+  expect(queryByLabelText(labelText)).toBeInTheDocument()
 })
