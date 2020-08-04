@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import Input from './Input'
 
@@ -71,13 +71,28 @@ test('should be able to accept placeholder attribure', () => {
 
 test('should be able to accept value attribure', () => {
   const labelText = 'Input Field'
-  const valueValue = 'John'
+  const inputValue = 'John'
   const { queryByLabelText } = render(
     <label>
       {labelText}
-      <Input value={valueValue} onChange={() => {}} />
+      <Input value={inputValue} onChange={() => {}} />
     </label>,
   )
 
-  expect(queryByLabelText(labelText)).toHaveAttribute('value', valueValue)
+  expect(queryByLabelText(labelText)).toHaveAttribute('value', inputValue)
+})
+
+test('should be able to handle change event', () => {
+  const mockFn = jest.fn()
+  const labelText = 'Input Field'
+  const inputValue = 'Input Value'
+  const { getByLabelText } = render(
+    <label>
+      {labelText}
+      <Input onChange={mockFn} />
+    </label>,
+  )
+  fireEvent.change(getByLabelText(labelText), { target: { value: inputValue } })
+
+  expect(mockFn).toBeCalledTimes(1)
 })
