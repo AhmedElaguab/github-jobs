@@ -4,7 +4,7 @@ import axios from 'axios'
 const BASE_URL =
   'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json'
 
-interface Job {
+export interface Job {
   company: string
   company_logo: string
   company_url: string

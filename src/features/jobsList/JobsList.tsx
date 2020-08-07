@@ -5,6 +5,7 @@ import { RootState } from '../../app/rootReducer'
 import useFetchJobs from '../../hooks/useFetchJobs'
 
 import Container from '../../utils/container/Container'
+import Job from './Job'
 
 const Loading = () => {
   return (
@@ -49,14 +50,17 @@ const JobsList = () => {
     location,
     page,
   })
-  console.log({ isLoading, hasError, jobs })
 
   if (isLoading) return <Loading />
   if (hasError) return <OnError error={hasError} />
   return (
     <div className="pt-24 px-2">
       <Container>
-        <div className="p-2 bg-white rounded">{jobs.length}</div>
+        <div className="p-2 bg-white rounded">
+          {jobs && jobs.length > 0
+            ? jobs.map(job => <Job key={job.id} job={job} />)
+            : 'No jobs found.'}
+        </div>
       </Container>
     </div>
   )
