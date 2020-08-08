@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       inset: {
         '50-': '-50px',
+        '50': '50px',
       },
       fontFamily: {
         sans: [

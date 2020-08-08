@@ -27,10 +27,10 @@ const SearchJobs: React.FC = () => {
   )
 
   return (
-    <div className="px-2">
+    <div className="px-2 relative top-50 text-gray-900">
       <Container>
-        <div className="relative">
-          <div className="p-3 absolute top-50- w-full inset-x-0 bg-white rounded shadow-sm">
+        <div>
+          <div className="p-3 w-full inset-x-0 bg-white rounded shadow-sm">
             <div className="lg:flex">
               <div className="lg:w-6/12 pr-1">
                 <FormInput

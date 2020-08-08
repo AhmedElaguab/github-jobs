@@ -1,4 +1,5 @@
 import React from 'react'
+import SearchJobs from '../features/searchJobs/SearchJobs'
 import Container from '../utils/container/Container'
 
 const Header: React.FC = () => {
@@ -9,6 +10,8 @@ const Header: React.FC = () => {
           <h1 className="text-3xl font-medium capitalize">Github Jobs</h1>
         </div>
       </Container>
+
+      <SearchJobs />
     </header>
   )
 }
