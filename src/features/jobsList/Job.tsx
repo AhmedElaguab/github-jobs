@@ -4,13 +4,15 @@ import { Job as JobType } from '../../hooks/useFetchJobs'
 const Job = ({ job }: { job: JobType }) => {
   return (
     <div className="p-2 mb-2 rounded shadow-xs">
-      <div>
-        <h4 className="text-sm text-gray-600">
-          {/* <small className="bg-yellow-600 text-gray-900 rounded py-1 px-2 mr-3 font-medium">
-            {job.type}
-          </small> */}
-          {job.company}
-        </h4>
+      <div className="flex">
+        <h4 className="flex-grow text-sm text-gray-600">{job.company}</h4>
+        {job.company_logo && (
+          <img
+            className="h-8 w-8 object-contain"
+            src={job.company_logo}
+            alt={job.company}
+          />
+        )}
       </div>
       <h3 className="mt-1 text-2xl">{job.title}</h3>
       <div className="flex">
