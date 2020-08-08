@@ -1,12 +1,16 @@
 import React from 'react'
-import Header from '../components/Header'
-import Content from '../components/Content'
+import { Switch, Route, Redirect } from 'react-router-dom'
+import Home from '../pages/Home'
+import JobDetails from '../pages/JobDetails'
 
 function App() {
   return (
-    <div className="app pt-48">
-      <Header />
-      <Content />
+    <div>
+      <Switch>
+        <Route path="/job/:jobId" component={JobDetails} />
+        <Route exact path="/" component={Home} />
+        <Redirect to="/" />
+      </Switch>
     </div>
   )
 }
