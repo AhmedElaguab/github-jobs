@@ -5,3 +5,19 @@
 body {
   @apply bg-gray-200 text-gray-900;
 }
+
+.job-description p {
+  @apply text-lg text-gray-800 mb-3 text-justify;
+}
+
+.job-description li {
+  @apply text-lg text-gray-800 text-justify;
+}
+
+.job-description strong {
+  @apply font-medium;
+}
+
+.job-description ul {
+  @apply list-disc list-inside mb-3;
+}
