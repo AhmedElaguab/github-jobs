@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import useFetchJob from '../hooks/useFetchJob'
 import JobDetailsLayout from '../features/jobDetails/JobDetailsLayout'
@@ -8,7 +8,6 @@ const JobDetails = () => {
   const { jobId } = useParams()
 
   const { job, isLoading, hasError } = useFetchJob(jobId)
-  console.log(job)
 
   if (isLoading) return <JobDetailsLayout>Loading...</JobDetailsLayout>
   if (hasError) {
